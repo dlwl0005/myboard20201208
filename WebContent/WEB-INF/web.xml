@@ -9,4 +9,17 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+   <context-param>
+  <param-name>jdbcUrl</param-name>
+  <param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
+  </context-param>
+  
+  <context-param>
+  <param-name>jdbcUser</param-name>
+  <param-value>c##mydbms</param-value>
+  </context-param>
+   <context-param>
+  <param-name>jdbcPassword</param-name>
+  <param-value>admin</param-value>
+  </context-param>
 </web-app>

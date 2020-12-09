@@ -13,7 +13,6 @@
   <param-name>jdbcUrl</param-name>
   <param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
   </context-param>
-  
   <context-param>
   <param-name>jdbcUser</param-name>
   <param-value>c##mydbms</param-value>
@@ -22,4 +21,19 @@
   <param-name>jdbcPassword</param-name>
   <param-value>admin</param-value>
   </context-param>
+  
+  <servlet>
+  <servlet-name>ControllerUsingURI</servlet-name>
+  <servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
+  <init-param>
+  <param-name>configFile</param-name>
+  <param-value>/WEB-INF/commandHandlerURI.properties</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>ControllerUsingURI</servlet-name>
+  <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -42,12 +42,12 @@ public class ControllerUsingURI extends HttpServlet {
     	String configFilePath 
     		= config.getInitParameter("configFile").trim();
     	
-    	System.out.println(config);
-    	System.out.println(configFilePath);
+//    	System.out.println(config);
+//    	System.out.println(configFilePath);
     	ServletContext application = getServletContext();
   		String filePath = application
   				.getRealPath(configFilePath);
-  		System.out.println(filePath);
+//  		System.out.println(filePath);
   		
   		try (FileReader fr = new FileReader(filePath);) {
   			Properties properties = new Properties();
@@ -99,11 +99,11 @@ public class ControllerUsingURI extends HttpServlet {
 		if (uri.startsWith(root)) {
 			command = uri.substring(root.length());
 		}
-		System.out.println(uri);
-		System.out.println(root);
-		System.out.println(command);
+//		System.out.println(uri);
+//		System.out.println(root);
+//		System.out.println(command);
 		CommandHandler handler = map.get(command);
-		System.out.println(handler);
+//		System.out.println(handler);
 		if (handler == null) {
 			handler = new NullHandler();
 		}

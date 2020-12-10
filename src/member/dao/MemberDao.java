@@ -10,6 +10,16 @@ import member.model.Member;
 
 public class MemberDao {
 	
+	public void update(Connection conn, Member member) throws SQLException{
+		String sql = "UPDATE member SET name=?, password=? where memberid=?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getPassword());
+			pstmt.setString(3, member.getId());
+			pstmt.executeUpdate();
+		}
+	}
+	
 	public Member selectById(Connection con, String id)
 			throws SQLException{
 		
@@ -63,6 +73,14 @@ public class MemberDao {
 			JdbcUtil.close(pstmt);
 		}
 		
+	}
+	
+	public void delete(Connection con, String id) throws SQLException{
+		String sql ="DELETE FROM member WHERE memberid=?";
+		try(PreparedStatement pstmt = con.prepareStatement(sql)){
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		}
 	}
 
 }
